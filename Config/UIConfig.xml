@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<UIConfig>
+
+<!--init-->
+<UIPage id="0">
+		<Item type="Image" name="Lblinit" top="0" left="0" width="1280" height="480" content="C:/HSR/UIConfig/Init.bmp" text=""/>
+</UIPage>
+
+<!--service-->
+<UIPage id="1">
+		<Item type="Image" name="Lblservice" top="0" left="0" width="1280" height="480" content="C:/HSR/UIConfig/Service.bmp" text=""/>
+</UIPage>
+
+<!--maintain-->
+<UIPage id="2">
+		<Item type="Image" name="Lblmaintain" top="0" left="0" width="1280" height="480" content="C:/HSR/UIConfig/Maintain.bmp" text=""/>
+</UIPage>
+
+<!--checkok-->
+<UIPage id="3">
+		<Item type="Image" name="Lblcheckok" top="0" left="0" width="1280" height="480" content="C:/HSR/UIConfig/CheckOK.bmp" text=""/>
+</UIPage>
+
+<!--taketicket-->
+<UIPage id="4">
+		<Item type="Image" name="Lbltaketicket" top="0" left="0" width="1280" height="480" content="C:/HSR/UIConfig/TakeTicketEntry.bmp" text=""/>
+</UIPage>
+
+<!--checkfail-->
+<UIPage id="5">
+		<Item type="Image" name="Lblcheckfail" top="0" left="0" width="1280" height="480" content="C:/HSR/UIConfig/CheckFailed.bmp" text=""/>
+</UIPage>
+
+<!--out of service-->
+<UIPage id="6">
+		<Item type="Image" name="LblOutOfService" top="0" left="0" width="1280" height="480" content="C:/HSR/UIConfig/OutOfService.bmp" text=""/>
+		<Item type="Lable" name="LblFault" top="400" left="20" width="100" height="30" content="" text=""/>
+</UIPage>
+
+
+
+</UIConfig>

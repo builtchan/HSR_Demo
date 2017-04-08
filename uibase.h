@@ -2,14 +2,24 @@
 #define UIBASE_H
 
 #include <QWidget>
+#include <QLabel>
+#include <QPushButton>
+#include <QPixmap>
+#include <ConfigParse/configparse.h>
 
 class UIBase : public QWidget
 {
   Q_OBJECT
 
 public:
-  UIBase(QWidget *parent = 0);
+  explicit UIBase(int iUiPage);
   ~UIBase();
+
+public:
+  void createUI(int iUiPage);
+
+public:
+  CConfigParse  *m_pData;
 };
 
 #endif // UIBASE_H
