@@ -20,6 +20,9 @@ public:
 
 public:
   CConfigParse  *m_pData;
+
+protected:
+  virtual void HideSomething() = 0;
 };
 
 #endif // UIBASE_H

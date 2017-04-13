@@ -59,19 +59,20 @@ bool CConfigParse::parseXMl()
   while(!UIpage.isNull())
     {
       iPage = UIpage.attributeNode("id").value().toInt();
+      stUIData.stItemList.clear();
       qDebug()<<"Page"<<iPage;
       QDomElement Item = UIpage.firstChildElement();
       while(!Item.isNull())
         {
           memset(&stUiItem,0,sizeof(stUiItem));
           if(Item.attributeNode("type").value().length() > 0 )
-            stUiItem.qWidgetType = Item.attributeNode("type").value();
+            strcpy(stUiItem.szWidgetType,Item.attributeNode("type").value().toStdString().c_str());
           if(Item.attributeNode("content").value().length() > 0 )
-            stUiItem.qContent = Item.attributeNode("content").value();
+            strcpy(stUiItem.szContent,Item.attributeNode("content").value().toStdString().c_str());
           if(Item.attributeNode("text").value().length() > 0 )
-            stUiItem.qText = Item.attributeNode("text").value();
+            strcpy(stUiItem.szText,Item.attributeNode("text").value().toStdString().c_str());
           if(Item.attributeNode("name").value().length() > 0 )
-            stUiItem.qName = Item.attributeNode("name").value();
+            strcpy(stUiItem.szName,Item.attributeNode("name").value().toStdString().c_str());
           stUiItem.iTop = Item.attributeNode("top").value().toInt();
           stUiItem.iLeft = Item.attributeNode("left").value().toInt();
           stUiItem.iWidth = Item.attributeNode("width").value().toInt();
@@ -83,13 +84,28 @@ bool CConfigParse::parseXMl()
       m_stData.stDataMap.insert(iPage,stUIData);
       UIpage = UIpage.nextSiblingElement();
     }
+  qDebug() << "end";
   file.close();
+
+  for(int i = 0 ; i < 7; i++)
+    {
+      qDebug() <<"i" << i;
+      QList<ST_UI_ITEM>::iterator it = m_stData.stDataMap[i].stItemList.begin();
+      for(;it != m_stData.stDataMap[i].stItemList.end();it++)
+        {
+          qDebug() << it->szWidgetType;
+          qDebug() << it->szContent;
+          qDebug() << it->szName;
+        }
+    }
+
+
   return true;
 }
 
-void CConfigParse::getUIData(ST_DATA *stData)
-{
-  if(NULL == stData)
-    qDebug() <<"NULL == stData";
-  memcpy(stData,&m_stData,sizeof(ST_DATA));
-}
+//void CConfigParse::getUIData(ST_DATA *stData)
+//{
+//  if(NULL == stData)
+//    qDebug() <<"NULL == stData";
+//  memcpy(stData,&m_stData,sizeof(ST_DATA));
+//}
