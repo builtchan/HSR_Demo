@@ -14,17 +14,16 @@
 #include <QDebug>
 
 #define UI_CONFIG_PATH "C:/HSR/UIConfig.xml"
-
 typedef struct _ST_UI_ITEM_
 {
-  QString qWidgetType;        //需要生成的控件类型
+  char szWidgetType[20];        //需要生成的控件类型
   int iTop;                   //上偏移
   int iLeft;                  //左偏移
   int iWidth;                 //控件宽
   int iHeight;                //控件高
-  QString qContent;           //附带内容
-  QString qText;              //Text
-  QString qName;
+  char szContent[256];           //附带内容
+  char szText[100];              //Text
+  char szName[20];
 }ST_UI_ITEM;
 
 typedef struct _ST_UI_DATA_
@@ -48,15 +47,17 @@ public:
   static CConfigParse * getInstance();
 
   bool parseXMl();
-  void getUIData(ST_DATA * stData);
 
+public:
+  ST_DATA m_stData;
+
+  int m_GateCom;
+  int m_TreCom;
+  int m_IDCardCom;
 
 private:
 
   static CConfigParse * m_pInstance;
-
-  ST_DATA m_stData;
-
 
 };
 

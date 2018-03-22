@@ -13,38 +13,38 @@ UIBase::~UIBase()
 
 void UIBase::createUI(int iUiPage)
 {
-  ST_DATA stData;
-  m_pData->getUIData(&stData);
-
-  if(stData.stDataMap.find(iUiPage) == stData.stDataMap.end())
+  if(m_pData->m_stData.stDataMap.find(iUiPage) == m_pData->m_stData.stDataMap.end())
     {
       qDebug() << "Didn’t find this page"<<iUiPage;
     }
-
-  QList<ST_UI_ITEM>::iterator it = stData.stDataMap[iUiPage].stItemList.begin();
-  for(;it != stData.stDataMap[iUiPage].stItemList.end();it++)
+  qDebug() << "page"<<iUiPage;
+  QList<ST_UI_ITEM>::iterator it = m_pData->m_stData.stDataMap[iUiPage].stItemList.begin();
+  for(;it != m_pData->m_stData.stDataMap[iUiPage].stItemList.end();it++)
     {
-      if(it->qWidgetType == "Image")
+      if(!strcmp(it->szWidgetType,"Image"))
         {
           QLabel *label = new QLabel(this);
           label->setGeometry(it->iLeft,it->iTop,it->iWidth,it->iHeight);
-          if(!it->qContent.isEmpty())
+          if(strlen(it->szContent) > 0)
             {
-              QPixmap pix(it->qContent);
+              qDebug() <<"strcmp Image";
+              QPixmap pix(it->szContent);
               label->setPixmap(pix);
             }
           else
             {
-              label->setText(it->qText);
+              label->setText(it->szText);
+              label->setObjectName(it->szName);
             }
-          label->setObjectName(it->qName);
+          this->setGeometry(it->iLeft,it->iTop,it->iWidth,it->iHeight);
         }
-      if(it->qWidgetType == "Label")
+      if(!strcmp(it->szWidgetType,"Label"))
         {
+          qDebug() <<"strcmp Label";
           QLabel *label = new QLabel(this);
           label->setGeometry(it->iLeft,it->iTop,it->iWidth,it->iHeight);
-          label->setText(it->qText);
-          label->setObjectName(it->qName);
+          label->setText(it->szText);
+          label->setObjectName(it->szName);
         }
     }
 

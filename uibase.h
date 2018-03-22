@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QLabel>
 #include <QPushButton>
+#include <QCheckBox>
 #include <QPixmap>
 #include <ConfigParse/configparse.h>
 
@@ -20,6 +21,9 @@ public:
 
 public:
   CConfigParse  *m_pData;
+
+protected:
+  virtual void HideSomething() = 0;
 };
 
 #endif // UIBASE_H
