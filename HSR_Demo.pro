@@ -22,6 +22,7 @@ SOURCES += main.cpp\
     UI/page4.cpp \
     UI/page5.cpp \
     UI/page6.cpp \
+<<<<<<< HEAD
     uimanager.cpp \
     UI/page7.cpp \
     UI/page8.cpp \
@@ -29,6 +30,9 @@ SOURCES += main.cpp\
     OmronTRE/omrontre.cpp \
     VOS_CSSa/player.cpp \
     EWReader/ewreader.cpp
+=======
+    uimanager.cpp
+>>>>>>> 510673eb2a1318b344da31a5a36100bef37f4bb9
 
 HEADERS  += uibase.h \
     ConfigParse/configparse.h \
@@ -39,6 +43,7 @@ HEADERS  += uibase.h \
     UI/page4.h \
     UI/page5.h \
     UI/page6.h \
+<<<<<<< HEAD
     uimanager.h \
     publicdef.h \
     UI/page7.h \
@@ -59,3 +64,6 @@ LIBS += C:/AFC/agdriver/GAT_CSSa.dll  \
     C:/AFC/agdriver/VOS_CSSa.dll \
     C:/AFC/agdriver/EWReader.dll\
     C:/AFC/agdriver/PSEMRSIV_GAT.dll
+=======
+    uimanager.h
+>>>>>>> 510673eb2a1318b344da31a5a36100bef37f4bb9

@@ -59,6 +59,7 @@ bool CConfigParse::parseXMl()
 
     while(!UIpage.isNull())
     {
+<<<<<<< HEAD
         iPage = UIpage.attributeNode("id").value().toInt();
         stUIData.stItemList.clear();
         qDebug()<<"Page"<<iPage;
@@ -81,10 +82,35 @@ bool CConfigParse::parseXMl()
 
             Item = Item.nextSiblingElement();
             stUIData.stItemList.push_back(stUiItem);
+=======
+      iPage = UIpage.attributeNode("id").value().toInt();
+      stUIData.stItemList.clear();
+      qDebug()<<"Page"<<iPage;
+      QDomElement Item = UIpage.firstChildElement();
+      while(!Item.isNull())
+        {
+          memset(&stUiItem,0,sizeof(stUiItem));
+          if(Item.attributeNode("type").value().length() > 0 )
+            strcpy(stUiItem.szWidgetType,Item.attributeNode("type").value().toStdString().c_str());
+          if(Item.attributeNode("content").value().length() > 0 )
+            strcpy(stUiItem.szContent,Item.attributeNode("content").value().toStdString().c_str());
+          if(Item.attributeNode("text").value().length() > 0 )
+            strcpy(stUiItem.szText,Item.attributeNode("text").value().toStdString().c_str());
+          if(Item.attributeNode("name").value().length() > 0 )
+            strcpy(stUiItem.szName,Item.attributeNode("name").value().toStdString().c_str());
+          stUiItem.iTop = Item.attributeNode("top").value().toInt();
+          stUiItem.iLeft = Item.attributeNode("left").value().toInt();
+          stUiItem.iWidth = Item.attributeNode("width").value().toInt();
+          stUiItem.iHeight = Item.attributeNode("height").value().toInt();
+
+          Item = Item.nextSiblingElement();
+          stUIData.stItemList.push_back(stUiItem);
+>>>>>>> 510673eb2a1318b344da31a5a36100bef37f4bb9
         }
         m_stData.stDataMap.insert(iPage,stUIData);
         UIpage = UIpage.nextSiblingElement();
     }
+<<<<<<< HEAD
 
     m_GateCom = ComConfig.attributeNode("Gate").value().toInt();
     m_TreCom = ComConfig.attributeNode("Tre").value().toInt();
@@ -106,6 +132,23 @@ bool CConfigParse::parseXMl()
 //          qDebug() << it->szName;
 //        }
 //    }
+=======
+  qDebug() << "end";
+  file.close();
+
+  for(int i = 0 ; i < 7; i++)
+    {
+      qDebug() <<"i" << i;
+      QList<ST_UI_ITEM>::iterator it = m_stData.stDataMap[i].stItemList.begin();
+      for(;it != m_stData.stDataMap[i].stItemList.end();it++)
+        {
+          qDebug() << it->szWidgetType;
+          qDebug() << it->szContent;
+          qDebug() << it->szName;
+        }
+    }
+
+>>>>>>> 510673eb2a1318b344da31a5a36100bef37f4bb9
 
   return true;
 }
