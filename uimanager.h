@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 ﻿#ifndef UIMANAGER
-=======
-#ifndef UIMANAGER
->>>>>>> 510673eb2a1318b344da31a5a36100bef37f4bb9
 #define UIMANAGER
 
 #include "UI/page0.h"
@@ -12,7 +8,6 @@
 #include "UI/page4.h"
 #include "UI/page5.h"
 #include "UI/page6.h"
-<<<<<<< HEAD
 #include "UI/page7.h"
 #include "UI/page8.h"
 
@@ -24,18 +19,12 @@
 #include "EWReader/ewreader.h"
 #include "VOS_CSSa/player.h"
 #include <QMediaPlayer>
-=======
-
-#include <QStackedWidget>
-#include <QKeyEvent>
->>>>>>> 510673eb2a1318b344da31a5a36100bef37f4bb9
 
 class CUimanager:public QStackedWidget
 {
   Q_OBJECT
 public:
   CUimanager();
-<<<<<<< HEAD
   virtual ~CUimanager();
 
   static CUimanager * GetInstance();
@@ -50,15 +39,6 @@ signals:
 public slots:
   //切换界面
   void SwitchPage(int iPage);
-=======
-
-protected:
-  void keyPressEvent(QKeyEvent * e);
-
-public slots:
-  //切换界面
-//  void SwitchPage(int iPage);
->>>>>>> 510673eb2a1318b344da31a5a36100bef37f4bb9
 
 private:
   CPage0 * m_pPage0;
@@ -68,7 +48,6 @@ private:
   CPage4 * m_pPage4;
   CPage5 * m_pPage5;
   CPage6 * m_pPage6;
-<<<<<<< HEAD
   CPage7 * m_pPage7;
   CPage8 * m_pPage8;
 
@@ -122,11 +101,6 @@ public slots:
   void On_clicked_ExitBtn();
   void on_clicked_GetSysInfoBtn();
   void on_clicked_GetGateInfoBtn();
-=======
-
-  QStackedWidget *m_pStackedWidget;
-
->>>>>>> 510673eb2a1318b344da31a5a36100bef37f4bb9
 };
 
 

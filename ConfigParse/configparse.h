@@ -50,13 +50,9 @@ public:
 
 public:
   ST_DATA m_stData;
-<<<<<<< HEAD
-
   int m_GateCom;
   int m_TreCom;
   int m_IDCardCom;
-=======
->>>>>>> 510673eb2a1318b344da31a5a36100bef37f4bb9
 
 private:
 
